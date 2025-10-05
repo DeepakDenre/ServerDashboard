@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev --turbopack",
+    "dev": "cross-env NODE_OPTIONS='--inspect=9230' dotenv -e .env.local -- next dev --turbopack -p $PORT",
     "build": "next build --turbopack",
-    "start": "NODE_OPTIONS='--inspect' next start",
+    "start": "cross-env NODE_OPTIONS='--inspect=9230' dotenv -e .env.production -- next start -p $PORT",
     "lint": "eslint"
   },
   "dependencies": {
@@ -31,6 +31,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.180.0",
+    "cross-env": "^10.1.0",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",
